@@ -1,3 +1,2 @@
 
-leetcode题目解析，每日一题+
-2018/5/15
+leetcode题目解析，python完成，每日一题+
