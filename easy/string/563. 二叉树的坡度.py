@@ -76,3 +76,28 @@ class Solution:
                 return root.val + left + right
         _sum_tilt(root)
         return self.ans
+
+
+# Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, x):
+#         self.val = x
+#         self.left = None
+#         self.right = None
+
+class Solution:
+    def findTilt(self, root):
+        """
+        :type root: TreeNode
+        :rtype: int
+        """
+
+        def dfs(root):
+            if not root:
+                return [0, 0]
+            else:
+                l1, l2 = dfs(root.left)
+                r1, r2 = dfs(root.right)
+                return [l1 + r1 + abs(l2 - r2), root.val + l2 + r2]
+
+        return dfs(root)[0]
